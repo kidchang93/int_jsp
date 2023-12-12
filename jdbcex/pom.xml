@@ -70,14 +70,22 @@
       </dependency>
 <!--lombok end-->
 
-  </dependencies>
+<!--HikariCP Start-->
+      <!-- https://mvnrepository.com/artifact/com.zaxxer/HikariCP -->
+      <dependency>
+          <groupId>com.zaxxer</groupId>
+          <artifactId>HikariCP</artifactId>
+          <version>3.3.1</version>
+      </dependency>
+<!--HikariCP End-->
+</dependencies>
 
-  <build>
-    <plugins>
+<build>
+  <plugins>
 <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-war-plugin</artifactId>
-        <version>3.3.2</version>
-      </plugin>    </plugins>
-  </build>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-war-plugin</artifactId>
+      <version>3.3.2</version>
+    </plugin>    </plugins>
+</build>
 </project>
