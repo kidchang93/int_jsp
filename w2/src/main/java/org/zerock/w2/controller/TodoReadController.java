@@ -6,6 +6,7 @@ import org.zerock.w2.service.TodoService;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -27,6 +28,18 @@ private TodoService todoService = TodoService.INSTANCE;
 
       // 데이터 담기
       req.setAttribute("dto",todoDTO);
+
+      // 쿠키 찾기
+      Cookie viewTodoCookie = findCookie(req.getCookies(), "viewTodos");
+      String todoListStr = viewTodoCookie.getValue();
+      boolean exist = false;
+
+      if (todoListStr != null && todoListStr.indexOf(tno+"-") >= 0){
+        exist = true;
+      }
+
+
+
       req.getRequestDispatcher("/WEB-INF/todo/read.jsp").forward(req,resp);
     } catch (Exception e){
       log.error(e.getMessage());
