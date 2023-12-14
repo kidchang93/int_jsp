@@ -4,8 +4,10 @@ import lombok.extern.log4j.Log4j2;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.annotation.WebListener;
 
 @Log4j2
+@WebListener
 public class W2AppListener implements ServletContextListener {
 
   @Override
